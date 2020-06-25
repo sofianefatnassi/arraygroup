@@ -1,0 +1,15 @@
+    <form [formGroup]='formName'>
+      <div formArrayName="controllerArray" >
+        <div *ngFor="let item of formName.controls.controllerArray.controls; let i=index" [formGroupName]="i">
+                    <input type='radio' (click)='select(i)' id="radio{{i}}" name="radio" 
+          value='radio{{i}}'>
+
+          <select formControlName="num">
+            <option *ngFor="let item2 of item.value.num" [value]='item2'>
+              {{item2}}
+            </option>
+          </select>
+          <label>{{item.value.value}}</label>
+        </div>
+      </div>
+    </form>
